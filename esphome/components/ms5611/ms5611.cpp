@@ -19,7 +19,7 @@ void MS5611Component::setup() {
     this->mark_failed();
     return;
   }
-  delay(100);  // NOLINT
+  delay(3);  // NOLINT Trug: changed from 100 to 3 to match ms5xxx.cpp
   for (uint8_t offset = 0; offset < 6; offset++) {
     if (!this->read_byte_16(MS5611_CMD_READ_PROM + (offset * 2), &this->prom_[offset])) {
       this->mark_failed();
